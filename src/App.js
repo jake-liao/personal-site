@@ -1,30 +1,25 @@
 import React from "react";
-// import { spacing } from "@material-ui/system";
-import { Grid, Paper } from "@material-ui/core";
+import { Button, AppBar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 
-const useStyles = makeStyles((theme)) => ({
-  grid: {
-    width: '100%',
-    margine: '0px',
-  },
-  paper: {
+const useStyles = makeStyles((theme) => ({
+  AppBar: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
-    background: them.palette.success.light,
+    color: "white",
+    background: "indigo",
   }
-});
+}));
 
 export default function App() {
   const classes = useStyles();
-
+  document.body.style.margin = "0px";
   return (
-    <Grid container spacing = {2} className = {classes.grid}>
-      <Grid item xs={6} md={12}>
-        <Paper className={classes.paper}>1</Paper>
-      </Grid>
-    </Grid>
+    <AppBar position="static" className={classes.AppBar}>
+      <Button>
+        
+      </Button>
+    </AppBar>
   );
 }
