@@ -6,15 +6,19 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from "./drawer";
 
 const useStyles = makeStyles(theme => ({
   AppBar: {
     width: "100vw",
-    color: "white",
+    marginTop: "3vh",
     background: "gray"
   },
   root: {
     flexGrow: "1",
+    height: "100vh",
+    width: "100vw",
+    background: "url(https://i.picsum.photos/id/1021/2048/1206.jpg?hmac=fqT2NWHx783Pily1V_39ug_GFH1A4GlbmOMu8NWB3Ts)"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -23,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: "1"
   },
   img: {
-    width: "100vw",
+    // width: "100%",
     height: "100vh"
   }
 }));
@@ -33,7 +37,7 @@ export default function App() {
   document.body.style.margin = "0px";
   return (
     <div className={classes.root}>
-      <AppBar>
+      <AppBar className={classes.AppBar}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -42,7 +46,7 @@ export default function App() {
             aria-label="menu"
           >
             <MenuIcon />
-            
+
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             StarCluster
@@ -50,7 +54,7 @@ export default function App() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <img className={classes.img} position="static" src="https://i.picsum.photos/id/1021/2048/1206.jpg?hmac=fqT2NWHx783Pily1V_39ug_GFH1A4GlbmOMu8NWB3Ts" alt="new"/>
+
     </div>
   );
 }
