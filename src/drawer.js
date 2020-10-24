@@ -8,7 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import Business from "@material-ui/icons/business";
+import Business from "@material-ui/icons/Business";
 import Info from "@material-ui/icons/Info";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -44,19 +44,17 @@ export default function Drawer() {
   const list = anchor => (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+        [classes.fullList]: anchor === "top" || anchor === "bottom"
       })}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['About', 'Business', 'Contact'].map((text, index) => (
+        {["About", "Business", "Contact"].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{
-              <Info />, 
-              <Business/>, 
-              <MailIcon />}
+            <ListItemIcon>
+              {(<Info />, <Business />, <MailIcon />)}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -68,24 +66,24 @@ export default function Drawer() {
 
   return (
     <div>
-        <React.Fragment key="Menu">
-          <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-              onClick={toggleDrawer("Menu", true)}
-            >
-              <MenuIcon/>
-            </IconButton>
-          <Drawer
-            anchor="Menu"
-            open={state["Menu"]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
+      <React.Fragment key="Menu">
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleDrawer("Menu", true)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Drawer
+          anchor="Menu"
+          open={state["Menu"]}
+          onClose={toggleDrawer(anchor, false)}
+        >
+          {list(anchor)}
+        </Drawer>
+      </React.Fragment>
     </div>
   );
 }
