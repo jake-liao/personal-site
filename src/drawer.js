@@ -12,6 +12,7 @@ import Business from "@material-ui/icons/Business";
 import Info from "@material-ui/icons/Info";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+
 const useStyles = makeStyles({
   list: {
     width: 250
@@ -51,14 +52,18 @@ export default function Drawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["About", "Business", "Contact"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {(<Info />, <Business />, <MailIcon />)}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button>
+          <ListItemIcon>
+            <Info />
+          </ListItemIcon>
+          <ListItemText primary="About" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <Business />
+          </ListItemIcon>
+          <ListItemText primary="Contact" />
+        </ListItem>
       </List>
       <Divider />
     </div>
@@ -66,7 +71,7 @@ export default function Drawer() {
 
   return (
     <div>
-      <React.Fragment key="Menu">
+      <React.Fragment key="left">
         <IconButton
           edge="start"
           className={classes.menuButton}
@@ -77,11 +82,11 @@ export default function Drawer() {
           <MenuIcon />
         </IconButton>
         <Drawer
-          anchor="Menu"
+          anchor="left"
           open={state["Menu"]}
-          onClose={toggleDrawer(anchor, false)}
+          onClose={toggleDrawer("Menu", false)}
         >
-          {list(anchor)}
+          {list("Menu")}
         </Drawer>
       </React.Fragment>
     </div>
